@@ -1,0 +1,34 @@
+.navbar-brand {
+    top: 0%;
+    left: 1%;
+    margin-left: 1%;
+  }
+ 
+ .eclipse-bar {
+     display:flex;
+     align-items: center;
+     gap:2rem;
+ }
+ 
+ .navbar {
+     position: fixed;
+     right: 0;
+     top: 0;
+     width: 100%;
+     height: 100px;
+     background-color: rgba(154, 192, 207, 0.988);
+     z-index: 1000;
+ }
+   
+ .link-bar {
+     color: white;
+     font-size: 200%;
+     text-decoration: none;
+     font-weight: bold;
+ }
+ 
+ 
+ .link-bar:hover {
+     color: black;
+ }
+  
