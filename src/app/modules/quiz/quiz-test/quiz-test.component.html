@@ -31,46 +31,54 @@
 <p>.</p>
 <p>.</p>
 <p>.</p>
-<ng-container>
-    <div class="d-flex justify-content-center mt-5">
-        <div class="col-12 col-lg-5">
-            <main class="form-signin">
-                <form [formGroup] = "quizForm" (ngSubmit)="submitForm()" autocomplete="off" class="p-3 border">
-                    <h3 style="text-align: center;">Logare</h3>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<div style="max-width: 800px;
+margin: auto;
+padding: 20px;
+border: 1px solid #58e4fab5;
+background-color: #11e9c54b;"*ngIf="startQuizNow === false">
+<div *ngIf="startQuizNow === false" style="display: flex;justify-content: center;margin: 3.125rem;" >
+    <div style="width: 41.66667%;">
+        <h2 style="text-align: center;font-family: Georgia, 'Times New Roman', Times, serif;">Your Quiz Is Ready</h2>
+           <div style="max-width: 100rem;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #fae858;
+            background-color: #d1f7f7;">
+            
+                <form [formGroup] = "quizForm" (ngSubmit)="showWarningPopup()" autocomplete="off" class="p-3 border">
                     <div class="form-floating mb-3">
-                        <label for="name">Name<span class="required">*</span></label>
-                        <input formControlName = "name" type="text" class="form-control" placeholder="Name">
-                                          
+                        <label for="name">Type Your Name  </label>
+                        <input formControlName = "name" type="text" class="form-control" placeholder="Name">               
                     </div>    
-                    <div class="d-grid mt-4 px-4">
-                        <button class="btn btn-warning" type="submit" style="font-weight: bold;" [disabled]="!isQuizFormComplete">Logare</button>
+                    <div style="display: grid; margin-top: 1rem; padding-left: 1rem;
+                    padding-right: 1rem;
+                    ">
+                        <button class="btn btn-warning" type="submit" [disabled]="!isQuizFormComplete">SAVE & Start Quiz</button>
                     </div>
                 </form>
-            </main>
-        </div>
+            </div>
     </div>
-</ng-container>
-<div class="start_btn"><button (click)="showWarningPopup()">Start Quiz</button></div> 
+</div>
+</div>
 
 <div class="info_box" [ngClass]="showWarning ? 'activeInfo':''">
-    <div class="info-title"><span>Some Rules of this Quiz</span></div>
+    <div class="info-title"><span>Rules of Eclipse Quiz</span></div>
     <div class="info-list">
-        <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
-        <div class="info">2. Once you select your answer, it can't be undone.</div>
-        <div class="info">3. You can't select any option once time goes off.</div>
-        <div class="info">4. You can't exit from the Quiz Once Started.</div> 
+        <div class="info">1. Just <span>10 questions </span>for you.</div>
+        <div class="info">2. Let's see what you learned.</div> 
+        <div class="info">3. Have FUN!</div> 
     </div>
     <div class="buttons">
-        <button class="quit">Exit Quiz</button>
         <button class="restart" (click)="startQuiz()">Continue</button>
     </div>
 </div>  
 
 <div class="quiz_box" [ngClass]="isQuizStarted? 'activeQuiz':''">
     <header>
-        <div class="title">Awesome Quiz Application</div>
-      
-        <div class="time_line" style="width: 550px;"></div>
+        <div class="title">Eclipse Quiz Game</div>
     </header>
     <section *ngIf="isQuizStarted && questionsList && questionsList.length > 0">
         <div class="que_text"><span>{{currentQuestionNo+1}}. {{questionsList[currentQuestionNo].question}} </span></div>
@@ -87,10 +95,10 @@
 
     <footer>
         <div class="total_que"><span>
-                <p>{{currentQuestionNo+1}}</p> of <p>{{questionsList.length}}</p> Questions
+                <p>{{currentQuestionNo+1}} / {{questionsList.length}} Questions</p>
             </span></div>
         <button *ngIf="currentQuestionNo+1 == questionsList.length" class="next_btn show" (click)="finish()">Finish</button>
-        <button *ngIf="currentQuestionNo+1 !== questionsList.length" class="next_btn show" (click)="nextQuestion()">Next Que</button>
+        <button *ngIf="currentQuestionNo+1 !== questionsList.length" class="next_btn show" (click)="nextQuestion()">Next</button>
     </footer>
 </div>
 
@@ -99,17 +107,29 @@
     <div class="icon">
         <i class="fas fa-crown"></i>
     </div>
-    <div class="complete_text">You've completed the Quiz!</div>
+    <div class="complete_text"> Quiz complete!</div>
     <div class="score_text">
-        <span>and congrats! , You got <p>{{correctAnswerCount}}</p> out of <p>{{questionsList.length}}</p></span>'
+        <p>Congrats! , You got {{correctAnswerCount}} out of {{questionsList.length}}</p>
     </div>
     <div class="buttons">
-        <button class="restart">Replay Quiz</button>
-        <button class="quit" (click)="start()">Quit Quiz</button>
+        <button class="quit" (click)="quit()">Quit Quiz</button>
     </div>
 </div>
 
+<div class="modal-cert-container" id="certificate" *ngIf="correctAnswerCount === 10">  
+    <div class="modal-cert-content-container">
+        <h1>Download your eclipse expert certificate :)</h1>
+        <canvas id="canvas" class="diploma-container"></canvas>
 
+        <div class="modal-button-container">
+            <button id="downloadButton">Download !</button>
+        </div>
+
+        <div class="modal-button-container">
+            <button onclick="closeAll();">Continue</button>
+        </div>
+    </div>
+</div>
 
 <!-- 
 

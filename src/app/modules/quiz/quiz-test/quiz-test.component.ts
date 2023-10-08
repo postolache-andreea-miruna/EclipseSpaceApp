@@ -12,9 +12,10 @@ import { Subscription, interval } from 'rxjs';
 export class QuizTestComponent implements OnInit {
   quizForm: FormGroup = new FormGroup({});
   submitted = false;
+  quiting = false;
   isQuizFormComplete = false;
-
-  constructor(private formBuilder: FormBuilder,private http: HttpClient,
+  startQuizNow = false;
+  constructor(private formBuilder: FormBuilder, private http: HttpClient,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -41,61 +42,111 @@ export class QuizTestComponent implements OnInit {
 
 
   submitForm() {
-    localStorage.setItem('name',this.quizForm.get('name')?.value);
+    localStorage.setItem('name', this.quizForm.get('name')?.value);
   }
 
   showWarning: boolean = false;
 
   isQuizStarted: boolean = false;
   isQuizEnded: boolean = false;
-  questionsList: any[]= [];
+  questionsList: any[] = [];
   currentQuestionNo: number = 0;
 
-  subscription: Subscription [] = [];
+  subscription: Subscription[] = [];
   correctAnswerCount: number = 0;
 
 
- 
+
+
   loadQuestions() {
-    this.http.get("assets/quiz.json").subscribe((res:any)=>{
+    this.http.get("assets/quiz.json").subscribe((res: any) => {
       debugger;
-      this.questionsList = res;
-      
+
+      while (this.questionsList.length <= 9) {
+        const random = res[Math.floor(Math.random() * res.length)];
+        if (!this.questionsList.includes(random)) {
+          this.questionsList.push(random);
+        }
+      }
     });
   }
   nextQuestion() {
-    if(this.currentQuestionNo < this.questionsList.length-1) {
-      this.currentQuestionNo ++;
+    if (this.currentQuestionNo < this.questionsList.length - 1) {
+      this.currentQuestionNo++;
     } else {
       this.subscription.forEach(element => {
         element.unsubscribe();
       });
-    } 
+    }
   }
   finish() {
     this.isQuizEnded = true;
-    this.isQuizStarted = false;  
+    this.isQuizStarted = false;
+
   }
 
-  start() {
+
+
+  quit() {
     this.showWarning = false;
     this.isQuizEnded = false;
-    this.isQuizStarted = false;  
+    this.isQuizStarted = false;
+    this.startQuizNow = false;
+    this.currentQuestionNo = 0;
+    this.correctAnswerCount = 0;
+    this.quiting = true;
+
+    document.getElementById('certificate')!.classList.add("display-block");
+
+    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d')!;
+    const img = new Image();
+    img.src = "assets/diploma.jpg";
+    img.onload = function () {
+      const scaleFactorWidth = canvas.width / img.width;
+      const scaleFactorHeight = canvas.height / img.height;
+
+      const scaleFactor = Math.min(scaleFactorWidth, scaleFactorHeight);
+
+      const scaledWidth = img.width * scaleFactor;
+      const scaledHeight = img.height * scaleFactor;
+
+      const x = (canvas.width - scaledWidth) / 2;
+      const y = (canvas.height - scaledHeight) / 2;
+
+      ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+      ctx.font = '15px serif';
+      ctx.fillStyle = 'white';
+      const name = localStorage.getItem('name');
+      if (name !== null) {
+          ctx.fillText(name, 130, 90);
+      }
+
+      const downloadButton = document.getElementById('downloadButton')!;
+      downloadButton.addEventListener('click', function () {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = canvas.toDataURL();
+        downloadLink.click();
+      });
+    }
+    
   }
 
   showWarningPopup() {
+    localStorage.setItem('name', this.quizForm.get('name')?.value);
     this.showWarning = true;
+    this.startQuizNow = true;
   }
 
   selectOption(option: any) {
-    if(option.isCorrect) {
-      this.correctAnswerCount ++;
+    if (option.isCorrect) {
+      this.correctAnswerCount++;
     }
     option.isSelected = true;
   }
   isOptionSelected(options: any) {
-    const selectionCount = options.filter((m:any)=>m.isSelected == true).length;
-    if(selectionCount == 0) {
+    const selectionCount = options.filter((m: any) => m.isSelected == true).length;
+    if (selectionCount == 0) {
       return false;
     } else {
       return true;
@@ -103,7 +154,7 @@ export class QuizTestComponent implements OnInit {
   }
   startQuiz() {
     this.showWarning = false;
-    this.isQuizStarted = true;  
+    this.isQuizStarted = true;
   }
 
 
@@ -112,38 +163,38 @@ export class QuizTestComponent implements OnInit {
 
 //     ngOnInit(): void {
 //         this.NextQuestion(0);
-//         document.getElementById('certificate')!.classList.add("display-block");
+//     document.getElementById('certificate')!.classList.add("display-block");
 
-//         const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-//         const ctx = canvas.getContext('2d')!;
-//         const img = new Image();
-//         img.src = "assets/diploma.jpg";
-//         img.onload = function() {
-//             const scaleFactorWidth = canvas.width / img.width;
-//             const scaleFactorHeight = canvas.height / img.height;
+//     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+//     const ctx = canvas.getContext('2d')!;
+//     const img = new Image();
+//     img.src = "assets/diploma.jpg";
+//     img.onload = function() {
+//         const scaleFactorWidth = canvas.width / img.width;
+//         const scaleFactorHeight = canvas.height / img.height;
 
-//             const scaleFactor = Math.min(scaleFactorWidth, scaleFactorHeight);
+//         const scaleFactor = Math.min(scaleFactorWidth, scaleFactorHeight);
 
-//             const scaledWidth = img.width * scaleFactor;
-//             const scaledHeight = img.height * scaleFactor;
+//         const scaledWidth = img.width * scaleFactor;
+//         const scaledHeight = img.height * scaleFactor;
 
-//             const x = (canvas.width - scaledWidth) / 2;
-//             const y = (canvas.height - scaledHeight) / 2;
+//         const x = (canvas.width - scaledWidth) / 2;
+//         const y = (canvas.height - scaledHeight) / 2;
 
-//             ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
-//             ctx.font = '15px serif';
-//             ctx.fillStyle = 'white';
-//             ctx.fillText("ana", 130, 90);
-//             //ctx.fillText((document.getElementById('name') as HTMLInputElement).value, 130, 90);
+//         ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+//         ctx.font = '15px serif';
+//         ctx.fillStyle = 'white';
+//         ctx.fillText("ana", 130, 90);
+//         //ctx.fillText((document.getElementById('name') as HTMLInputElement).value, 130, 90);
 
-//             const downloadButton = document.getElementById('downloadButton')!;
-//             downloadButton.addEventListener('click', function() {
-//                 const downloadLink = document.createElement('a');
-//                 downloadLink.href = canvas.toDataURL();
-//                 downloadLink.click();
-//             });
-//         }
+//         const downloadButton = document.getElementById('downloadButton')!;
+//         downloadButton.addEventListener('click', function() {
+//             const downloadLink = document.createElement('a');
+//             downloadLink.href = canvas.toDataURL();
+//             downloadLink.click();
+//         });
 //     }
+// }
 //   questionNumber = 1;
 //   playerScore = 0;
 //   wrongAttempt = 0;
