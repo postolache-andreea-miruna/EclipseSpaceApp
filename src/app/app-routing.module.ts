@@ -34,6 +34,10 @@ const routes: Routes = [
     loadChildren: () => import('src/app/modules/solar-eclipse/solar-eclipse.module').then(m => m.SolarEclipseModule)
   },
   {
+    path: 'DrawTimeI',
+    loadChildren: () => import('src/app/modules/draw-timeI/draw-time.module').then(m => m.DrawTimeIModule)
+  },
+  {
     path: 'Quiz',
     loadChildren: () => import('src/app/modules/quiz/quiz.module').then(m => m.QuizModule)
   },
