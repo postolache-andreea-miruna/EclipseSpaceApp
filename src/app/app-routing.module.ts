@@ -41,6 +41,18 @@ const routes: Routes = [
     path: 'Quiz',
     loadChildren: () => import('src/app/modules/quiz/quiz.module').then(m => m.QuizModule)
   },
+  {
+    path: 'Live',
+    loadChildren: () => import('src/app/modules/livestream/livestream.module').then(m => m.LivestreamModule)
+  },
+  {
+    path: 'LunarEclipse',
+    loadChildren: () => import('src/app/modules/lunar-eclipse/lunar-eclipse.module').then(m => m.LunarEclipseModule)
+  },
+  {
+    path: 'Simulator',
+    loadChildren: () => import('src/app/modules/eclipse-sim/eclipse-sim.module').then(m => m.EclipseSimModule)
+  },
 
 ];
 

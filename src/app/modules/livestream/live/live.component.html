@@ -26,3 +26,22 @@
     </div>
 
 </nav>
+<p style="color: rgba(240, 248, 255, 0);">,</p>
+<div class="background"></div>
+<div style=" display: flex;
+justify-content: center;
+align-items: center;
+height: 90vh;">
+
+    <youtube-player 
+        [videoId]="currentVideoId"
+        suggestedQuality="highres"
+        [height]="600"
+        [width]="1080"
+        [playerVars]="playerVars" 
+        (ready)="savePlayer($event)"
+        *ngIf="showPlayer"
+        class="live">
+    </youtube-player>
+
+</div>
