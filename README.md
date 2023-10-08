@@ -1,6 +1,12 @@
-# EclipseSpaceApp
+# EclipseSpaceApp HACKATHON 7-8.10.2023
 
 Deploy:  https://eclipse.controlf5.software/home
+
+MEMBERS:
+
+Dobre Talida Marina
+Lupu Elena
+Postolache Andreea Miruna
 
 HIGH-LEVEL SUMMARY
 We aimed to create a kids friendly activity center in order to help the young ones learn about eclipses. We want them to get in an engaging and interactive manner the scientific explanations for this natural phenomenon. We chose this project because children nowdays are more curious than ever, but not always they get the information they seek.
