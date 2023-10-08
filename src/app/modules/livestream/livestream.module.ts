@@ -14,6 +14,7 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     CommonModule,
     LivestreamRoutingModule,
     NgxYoutubePlayerModule.forRoot()
+
   ]
 })
 export class LivestreamModule { }

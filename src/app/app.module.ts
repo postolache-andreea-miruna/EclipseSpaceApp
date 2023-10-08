@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,7 @@ import { JwtModule } from '@auth0/angular-jwt';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     JwtModule.forRoot({
       config:{
         tokenGetter : () => {
