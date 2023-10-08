@@ -19,6 +19,18 @@
      background-color: rgba(154, 192, 207, 0.988);
      z-index: 1000;
  }
+ .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160%;
+    background-image: url('../../../../assets/UnEcl.jpeg');
+    background-repeat: repeat;
+    background-size:contain;
+    z-index: -1;
+    opacity: 0.5;
+  }
    
  .link-bar {
      color: white;

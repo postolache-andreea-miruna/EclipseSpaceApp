@@ -39,6 +39,7 @@
   //  padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 body{
@@ -70,7 +71,18 @@ body{
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
-
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 100%;
+    background-image: url('../../../../assets/understandingEclipses.jpeg');
+    background-repeat: repeat;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+  }
 .start_btn button{
     font-size: 25px;
     font-weight: 500;
