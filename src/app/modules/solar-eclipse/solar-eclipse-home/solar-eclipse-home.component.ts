@@ -9,3 +9,5 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 export class SolarEclipseHomeComponent  
 {
 }
+
+
