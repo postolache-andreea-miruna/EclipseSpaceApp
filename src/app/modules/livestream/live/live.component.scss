@@ -1,3 +1,16 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 100%;
+    background-image: url('../../../../assets/backLive.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.8;
+  }
+
 .navbar-brand {
     top: 0%;
     left: 1%;
@@ -30,4 +43,10 @@
  
  .link-bar:hover {
      color: black;
+ }
+  
+ .live:hover{
+    transform: translateY(-0.5rem) scale(1.0125);
+    box-shadow: 0 0.8em 4rem -1rem rgba(12, 164, 184, 0.5);
+
  }

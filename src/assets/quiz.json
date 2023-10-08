@@ -1,0 +1,270 @@
+[
+    {
+      "questionId": 1,
+      "question": "Eclipses appear when ____________", 
+      "options": [
+          {
+              "answer": "Sun, Moon and Earth align",
+              "isCorrect": true
+          },
+          {
+              "answer": "it is a new moon",
+              "isCorrect": false
+          },
+          {
+              "answer": "the Sun rises",
+              "isCorrect": false
+          },
+          {
+              "answer": "Sun and Moon do not align",
+              "isCorrect": false
+          }
+      ],
+      "quizPic": ""
+    },
+    {
+      "questionId": 2,
+      "question": "An eclipse can be seen _______", 
+      "options": [
+          {
+              "answer": "from everywhere around the world",
+              "isCorrect": false
+          },
+          {
+              "answer": "only from a certain region of the world",
+              "isCorrect": true
+          },
+          {
+              "answer": "nowhere",
+              "isCorrect": false
+          },
+          {
+              "answer": "only from Antarctica",
+              "isCorrect": false
+          }
+      ],
+      "quizPic": ""
+    },
+    {
+      "questionId": 3,
+      "question": "How many types of solar eclipses are ?", 
+      "options": [
+          {
+              "answer": "1",
+              "isCorrect": false
+          },
+          {
+              "answer": "2",
+              "isCorrect": false
+          },
+          {
+              "answer": "3",
+              "isCorrect": false
+          },
+          {
+              "answer": "4",
+              "isCorrect": true
+          }
+      ],
+      "quizPic": ""
+    },
+    {
+      "questionId": 4,
+      "question": "What kind of eclipse is this ?", 
+      "options": [
+          {
+              "answer": "Solar anular",
+              "isCorrect": false
+          },
+          {
+              "answer": "Solar partial",
+              "isCorrect": true
+          },
+          {
+              "answer": "Solar total",
+              "isCorrect": false
+          },
+          {
+              "answer": "Lunar",
+              "isCorrect": false
+          }
+      ],
+      "quizPic": "assets/PartialSun.jpeg"
+    },
+    {
+      "questionId": 5,
+      "question": "What is the color of the Moon during a lunar eclipse ?", 
+      "options": [
+          {
+              "answer": "Red",
+              "isCorrect": true
+          },
+          {
+              "answer": "Blue",
+              "isCorrect": false
+          },
+          {
+              "answer": "White",
+              "isCorrect": false
+          },
+          {
+              "answer": "Black",
+              "isCorrect": false
+          }
+      ],"quizPic": ""
+    },
+    {
+        "questionId": 6,
+        "question": "An eclipse occurs almost every _________", 
+        "options": [
+            {
+                "answer": "day",
+                "isCorrect": false
+            },
+            {
+                "answer": "6 months",
+                "isCorrect": true
+            },
+            {
+                "answer": "year",
+                "isCorrect": false
+            },
+            {
+                "answer": "century",
+                "isCorrect": false
+            }
+        ],"quizPic": ""
+      },
+      {
+          "questionId": 7,
+          "question": "What kind of eclipse is represented in the picture ?", 
+          "options": [
+              {
+                  "answer": "Lunar",
+                  "isCorrect": true
+              },
+              {
+                  "answer": "Solar partial",
+                  "isCorrect": false
+              },
+              {
+                  "answer": "Solar total",
+                  "isCorrect": false
+              },
+              {
+                  "answer": "There is no eclipse",
+                  "isCorrect": false
+              }
+          ],"quizPic": "assets/LunarEclipse.jpg"
+        },
+        {
+            "questionId": 8,
+            "question": "How do you protect yourself if you want to go to see a solar eclipse ?", 
+            "options": [
+                {
+                    "answer": "Sunscreen",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Hat",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Special glasses",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Parasol",
+                    "isCorrect": false
+                }
+            ],"quizPic": ""
+          },
+          {
+            "questionId": 9,
+            "question": "How many types of lunar eclipses are ?", 
+            "options": [
+                {
+                    "answer": "1",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "2",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "3",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "4",
+                    "isCorrect": false
+                }
+            ],"quizPic": ""
+          },
+          {
+            "questionId": 10,
+            "question": "Which one of this affirmations is true ?", 
+            "options": [
+                {
+                    "answer": "Eclipses can be seen only from Antarctica",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "You need special gear to watch a solar eclipse",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "During lunar eclipses, the Moon is blue",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Eclipses happen once a year",
+                    "isCorrect": false
+                }
+            ],"quizPic": ""
+          },
+          {
+            "questionId": 11,
+            "question": "Which one of this affirmations is false about lunar eclipses?", 
+            "options": [
+                {
+                    "answer": "There are 3 types",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "The Earth completly covers the Moon",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "You don't need protection to watch one",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "They happen 5 time a year",
+                    "isCorrect": true
+                }
+            ],"quizPic": ""
+          },
+          {
+            "questionId": 12,
+            "question": "Which one of this affirmatons is false about lunar eclipses?", 
+            "options": [
+                {
+                    "answer": "You don't need protection to watch one",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "The Moon covers the Sun",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "It can be seen only from a certain region",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "There are 4 types",
+                    "isCorrect": false
+                }
+            ],"quizPic": ""
+          }
+  ]

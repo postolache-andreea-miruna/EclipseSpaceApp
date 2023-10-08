@@ -1,3 +1,117 @@
+<nav class="navbar navbar-light">
+    <div class="eclipse-bar">
+        <div>
+            <a class="navbar-brand" href="#">
+                <img src="assets/Logo.png"
+                    height="100vh" alt="" loading="lazy" class="logo" />
+            </a>
+        </div>
+    
+        <div>
+            <a class="link-bar" href="http://localhost:4200/Simulator/Simulator">
+                Eclipse Simulator 
+            </a>
+        </div>
+        
+        <div>
+            <a class="link-bar" href="http://localhost:4200/SolarEclipse/SolarEclipse">
+                Solar Eclipse 
+            </a>
+        </div>
+       <div>
+        <a class="link-bar" href="http://localhost:4200/LunarEclipse/LunarEclipse">
+            Lunar Eclipse 
+        </a>
+       </div>
+    </div>
+
+</nav>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<ng-container>
+    <div class="d-flex justify-content-center mt-5">
+        <div class="col-12 col-lg-5">
+            <main class="form-signin">
+                <form [formGroup] = "quizForm" (ngSubmit)="submitForm()" autocomplete="off" class="p-3 border">
+                    <h3 style="text-align: center;">Logare</h3>
+                    <div class="form-floating mb-3">
+                        <label for="name">Name<span class="required">*</span></label>
+                        <input formControlName = "name" type="text" class="form-control" placeholder="Name">
+                                          
+                    </div>    
+                    <div class="d-grid mt-4 px-4">
+                        <button class="btn btn-warning" type="submit" style="font-weight: bold;" [disabled]="!isQuizFormComplete">Logare</button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</ng-container>
+<div class="start_btn"><button (click)="showWarningPopup()">Start Quiz</button></div> 
+
+<div class="info_box" [ngClass]="showWarning ? 'activeInfo':''">
+    <div class="info-title"><span>Some Rules of this Quiz</span></div>
+    <div class="info-list">
+        <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+        <div class="info">2. Once you select your answer, it can't be undone.</div>
+        <div class="info">3. You can't select any option once time goes off.</div>
+        <div class="info">4. You can't exit from the Quiz Once Started.</div> 
+    </div>
+    <div class="buttons">
+        <button class="quit">Exit Quiz</button>
+        <button class="restart" (click)="startQuiz()">Continue</button>
+    </div>
+</div>  
+
+<div class="quiz_box" [ngClass]="isQuizStarted? 'activeQuiz':''">
+    <header>
+        <div class="title">Awesome Quiz Application</div>
+      
+        <div class="time_line" style="width: 550px;"></div>
+    </header>
+    <section *ngIf="isQuizStarted && questionsList && questionsList.length > 0">
+        <div class="que_text"><span>{{currentQuestionNo+1}}. {{questionsList[currentQuestionNo].question}} </span></div>
+        <div class="que_img"><img src="{{questionsList[currentQuestionNo].quizPic}}"></div>
+        <div class="option_list">
+            <div class="option"  [ngClass]="{'disabled': isOptionSelected(questionsList[currentQuestionNo].options),
+                                            'correct':option.isSelected && option.isCorrect,
+                                            'incorrect':option.isSelected  && !option.isCorrect}" (click)="selectOption(option)" *ngFor="let option of questionsList[currentQuestionNo].options">
+                <span>{{option.answer}}</span> 
+            </div> 
+        </div>
+        
+    </section> 
+
+    <footer>
+        <div class="total_que"><span>
+                <p>{{currentQuestionNo+1}}</p> of <p>{{questionsList.length}}</p> Questions
+            </span></div>
+        <button *ngIf="currentQuestionNo+1 == questionsList.length" class="next_btn show" (click)="finish()">Finish</button>
+        <button *ngIf="currentQuestionNo+1 !== questionsList.length" class="next_btn show" (click)="nextQuestion()">Next Que</button>
+    </footer>
+</div>
+
+
+<div class="result_box" [ngClass]="isQuizEnded?'activeResult':''">
+    <div class="icon">
+        <i class="fas fa-crown"></i>
+    </div>
+    <div class="complete_text">You've completed the Quiz!</div>
+    <div class="score_text">
+        <span>and congrats! , You got <p>{{correctAnswerCount}}</p> out of <p>{{questionsList.length}}</p></span>'
+    </div>
+    <div class="buttons">
+        <button class="restart">Replay Quiz</button>
+        <button class="quit" (click)="start()">Quit Quiz</button>
+    </div>
+</div>
+
+
+
+<!-- 
 
     <main>
         <div class="modal-container" id="score-modal">
@@ -37,7 +151,7 @@
                 </div>
             </div>
         </div>
-<!-- end of modal of quiz details-->
+
 
         <div class="game-quiz-container">
 
@@ -92,8 +206,8 @@
             </div>
             <img id="Quiz_pic" src="/src/assets/Quiz_Background.jpg" class="game-pic-container">
             <div class="next-button-container">
-                <button onclick="handleNextQuestion()">Next Question --></button>
+                <button onclick="handleNextQuestion()">Next Question</button>
             </div>
 
         </div>
-    </main>
+    </main> -->
