@@ -32,6 +32,7 @@
     "@angular/compiler-cli": "^15.2.0",
     "@types/deepai": "^1.0.1",
     "@types/jasmine": "~4.3.0",
+    "api-ai-javascript": "^2.0.0-beta.21",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

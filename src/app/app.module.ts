@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { ChatModule } from './modules/chat/chat.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+   // ChatModule,
     AppRoutingModule,
     HttpClientModule,
     JwtModule.forRoot({

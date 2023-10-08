@@ -53,6 +53,10 @@ const routes: Routes = [
     path: 'Simulator',
     loadChildren: () => import('src/app/modules/eclipse-sim/eclipse-sim.module').then(m => m.EclipseSimModule)
   },
+  // {
+  //   path: 'Chat',
+  //   loadChildren: () => import('src/app/modules/chat/chat.module').then(m => m.ChatModule)
+  // },
 
 ];
 
